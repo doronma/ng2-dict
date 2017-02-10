@@ -1,0 +1,24 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="alert alert-info">
+        <u><strong>Word Group Selection </strong> </u>
+        <h5> Current Selected Word Group: <strong>{{wordLoaderService.getSelectedWordGroup()}}</strong>, Select a new word group :
+        </h5>
+      </div>
+      <br>
+       <table class="table table-hover table-bordered">
+        <tr *ngFor="let wordGroupName of wordGroupList">
+          <td td style="width: 50%" (click)="selectWordGroup(wordGroupName)">{{ wordGroupName }}</td>
+          <td td style="width: 50%">
+            <button class="btn btn-primary" (click)="selectWordGroup(wordGroupName)">Select</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <img src="../../assets/voc7.jpg" class="img-thumbnail"><br>
+    </div>
+  </div>
+</div>

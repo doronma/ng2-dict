@@ -1,0 +1,24 @@
+<div class="container" >
+<br>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="alert alert-info">
+			<u><strong>Show Words in Word Group</strong> </u>
+			<h5>	Current Selected Word Group: <strong>{{wordLoaderService.getSelectedWordGroup()}}</strong></h5>
+			</div>
+			<br>
+		<table class="table table-hover">
+				<tr  *ngFor="let word of wordLoaderService.getCurrentWordGroupWords()" >
+					<td>{{ word.engWord }}</td>
+					<td align="right">{{ word.hebWord }}</td>
+				</tr>
+			</table>
+		
+		</div>
+		<div class="col-sm-6">
+			<img src="../../../assets/voc2.jpg" class="img-thumbnail">
+		</div>
+	</div>
+</div>
+

@@ -6,12 +6,22 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { SelectWordgroupComponent } from './select-wordgroup/select-wordgroup.component';
+import { ShowWordsComponent } from './exercises/show-words/show-words.component';
+import { SelectWordsComponent } from './exercises/select-words/select-words.component';
+import { WriteWordsComponent } from './exercises/write-words/write-words.component';
+
+import { WordLoaderService } from './services/word-loader.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    SelectWordgroupComponent,
+    ShowWordsComponent,
+    SelectWordsComponent,
+    WriteWordsComponent
     
   ],
   imports: [
@@ -20,7 +30,7 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [WordLoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

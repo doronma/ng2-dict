@@ -1,10 +1,22 @@
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" routerLink="/home">Learn Vocabulary</a>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <a class="navbar-brand" [routerLink]="['home']">Home</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+           
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['selectWordGrop']">Select Word Group</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" [routerLink]="['showWords']">Show Words</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" [routerLink]="['selectWords']">Select Words</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" [routerLink]="['writeWords']">Write Words</a>
+            </li>
+        </ul>
     </div>
-    <ul class="nav navbar-nav">
-        
-    </ul>
 </nav>
 
 
