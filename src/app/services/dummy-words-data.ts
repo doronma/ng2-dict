@@ -11,7 +11,7 @@ export class DummyWordsData {
         let result : DictWord[];
 
         if (selectedGroup == 'group1') {
-            let word1: DictWord = new DictWord('word1', 'one');
+            let word1: DictWord = new DictWord('word1', 'אחד');
             let word2: DictWord = new DictWord('word2', 'two');
             let word3: DictWord = new DictWord('word3', 'three');
             let word4: DictWord = new DictWord('word4', 'four');

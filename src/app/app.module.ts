@@ -12,6 +12,7 @@ import { SelectWordsComponent } from './exercises/select-words/select-words.comp
 import { WriteWordsComponent } from './exercises/write-words/write-words.component';
 
 import { WordLoaderService } from './services/word-loader.service';
+import { ArrayUtilsService } from './services/array-utils.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { WordLoaderService } from './services/word-loader.service';
     ShowWordsComponent,
     SelectWordsComponent,
     WriteWordsComponent
-    
+
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,10 @@ import { WordLoaderService } from './services/word-loader.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [WordLoaderService],
+  providers: [
+    WordLoaderService,
+    ArrayUtilsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

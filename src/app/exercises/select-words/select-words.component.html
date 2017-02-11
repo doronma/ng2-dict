@@ -1,3 +1,43 @@
-<p>
-  select-words works!
-</p>
+<div class="container">
+  <br>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="alert alert-info">
+        <u><strong>Word  Matching in Word Group</strong> </u>
+        <h5> Current Selected Word List: <strong>{{wordLoaderService.getSelectedWordGroup()}}</strong> , Word {{counter+1}} of
+          {{localCurrentWordGroupWords.length}} : <strong>{{(wordLoaderService.getCurrentWordGroupWords())[counter].hebWord}}</strong> </h5>
+
+        <div class="alert alert-info" *ngIf="status=='start'">
+          <Strong>Please select a word from the list</Strong>
+        </div>
+        <div class="alert alert-success" *ngIf="status == 'success'">
+          <Strong>Good Answer</Strong>
+        </div>
+        <div class="alert alert-danger" *ngIf="status == 'failure'">
+          <Strong>Wrong Answer</Strong>
+        </div>
+        <div class="alert alert-success" *ngIf="status == 'finished'">
+          <Strong>Good Answer,  No more Words</Strong>
+        </div>
+
+        <table class="table .table-condensed">
+          <tr *ngFor="let word of localCurrentWordGroupWords">
+            <td>{{ word.engWord }}</td>
+
+            <td><button class="btn btn-primary btn-xs" (click)="selectWord(word.engWord)" [disabled]="status == 'finished' && lastResultSuccess">select</button></td>
+          </tr>
+        </table>
+        <a class="btn btn-warning btn-sm" (click)="reset()">Reset</a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/showWords']">Back</a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/writeWords']">Next</a>
+
+      </div>
+
+    </div>
+    <div class="col-sm-4">
+      <img src="../../../assets/voc6.jpg" class="img-thumbnail"></div>
+
+
+  </div>
+</div>

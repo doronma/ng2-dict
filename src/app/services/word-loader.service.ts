@@ -13,10 +13,16 @@ export class WordLoaderService {
   constructor() { }
 
   public getSelectedWordGroup(): string {
+    if (this.selectedWordGroup==null){
+      this.selectedWordGroup = this.getWordGroupList()[0];
+    }
     return this.selectedWordGroup;
   }
 
   public getCurrentWordGroupWords() : DictWord[]{
+    if (this.currentWordGroupWords==null){
+      this.setSelectedWordGroup(this.getWordGroupList()[0]);
+    }
     return this.currentWordGroupWords;
   }
 

@@ -9,7 +9,7 @@
       </div>
       <br>
        <table class="table table-hover table-bordered">
-        <tr *ngFor="let wordGroupName of wordGroupList">
+        <tr *ngFor="let wordGroupName of wordLoaderService.getWordGroupList()">
           <td td style="width: 50%" (click)="selectWordGroup(wordGroupName)">{{ wordGroupName }}</td>
           <td td style="width: 50%">
             <button class="btn btn-primary" (click)="selectWordGroup(wordGroupName)">Select</button>
