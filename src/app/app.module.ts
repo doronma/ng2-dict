@@ -13,6 +13,7 @@ import { WriteWordsComponent } from './exercises/write-words/write-words.compone
 
 import { WordLoaderService } from './services/word-loader.service';
 import { ArrayUtilsService } from './services/array-utils.service';
+import { PracticeComponent } from './practice/practice.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ArrayUtilsService } from './services/array-utils.service';
     SelectWordgroupComponent,
     ShowWordsComponent,
     SelectWordsComponent,
-    WriteWordsComponent
+    WriteWordsComponent,
+    PracticeComponent
 
   ],
   imports: [

@@ -1,0 +1,66 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="alert alert-info">
+        <u *ngIf="practice=='select'"><strong>Word  Matching in Word Group</strong> </u>
+        <u *ngIf="practice=='write'"><strong>Word writing in Word Group</strong> </u>
+        <h5> Current Selected Word List: <strong>{{wordLoaderService.getSelectedWordGroup()}}</strong> , Word {{counter+1}} of
+          {{localCurrentWordGroupWords.length}} :
+          <strong *ngIf="practice=='select'">{{(wordLoaderService.getCurrentWordGroupWords())[counter].hebWord}}</strong>
+          <strong *ngIf="practice=='write'">{{localCurrentWordGroupWords[counter].hebWord}}</strong></h5>
+        <div class="alert alert-info" *ngIf="status=='start'">
+          <Strong *ngIf="practice=='select'">Please select a word from the list</Strong>
+          <Strong *ngIf="practice=='write'">Please Translate word</Strong>
+        </div>
+        <div class="alert alert-success" *ngIf="status == 'success'">
+          <Strong>Good Answer</Strong>
+        </div>
+        <div class="alert alert-danger" *ngIf="status == 'failure'">
+          <Strong>Wrong Answer</Strong>
+        </div>
+        <div class="alert alert-success" *ngIf="status == 'finished'">
+          <Strong>Good Answer,  No more Words</Strong>
+        </div>
+        <table *ngIf="practice=='select'" class="table .table-condensed">
+          <tr *ngFor="let word of localCurrentWordGroupWords">
+            <td>{{ word.engWord }}</td>
+
+            <td><button class="btn btn-primary btn-xs" (click)="selectWord(word.engWord)" [disabled]="status == 'finished' && lastResultSuccess">select</button></td>
+          </tr>
+        </table>
+        <div class="form-group" *ngIf="practice=='write'">
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="translation">Translate:</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="translation" name="translation" [(ngModel)]="translation" ng-model="showWordsControl.translation">
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-primary" (click)="checkWord()" (disabled)="status == 'finished'">send</button>
+              <button class="btn btn-info" (click)="showHint(true)">Hint</button>
+            </div>
+          </div>
+          <div class="row" *ngIf="swShowHint">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9">
+              <strong>{{localCurrentWordGroupWords[counter].engWord}}</strong>
+            </div>
+          </div>
+          <div class="row" *ngIf="!swShowHint">
+            <div class="col-sm-12 ">&nbsp;</div>
+          </div>
+        </div>
+        <a class="btn btn-warning btn-sm" (click)="reset()">Reset</a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/showWords']">show Words</a>
+        <a *ngIf="practice=='select'" class="btn btn-primary btn-sm" [routerLink]="['/practice/write']">write Words</a>
+        <a *ngIf="practice=='write'" class="btn btn-primary btn-sm " [routerLink]="[ '/practice/select'] ">select words</a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <img *ngIf="practice=='select'" src="../../../assets/voc6.jpg" class="img-thumbnail">
+      <img *ngIf="practice=='write'" src="../../../assets/voc4.png " class="img-thumbnail ">
+    </div>
+  </div>
+</div>

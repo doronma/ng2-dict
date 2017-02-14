@@ -5,6 +5,7 @@ import { SelectWordgroupComponent } from './select-wordgroup/select-wordgroup.co
 import { ShowWordsComponent } from './exercises/show-words/show-words.component';
 import { SelectWordsComponent } from './exercises/select-words/select-words.component';
 import { WriteWordsComponent } from './exercises/write-words/write-words.component';
+import { PracticeComponent } from './practice/practice.component';
 
 const routes: Routes = [
 
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'selectWordGrop', component: SelectWordgroupComponent },
   { path: 'showWords', component: ShowWordsComponent },
-  { path: 'selectWords', component: SelectWordsComponent },
+  { path: 'selectWords', component: PracticeComponent },
+  { path: 'practice/:practice_type', component: PracticeComponent },
   { path: 'writeWords', component: WriteWordsComponent }
 
 ];
