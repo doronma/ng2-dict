@@ -1,14 +1,18 @@
-<div class="container">
+<div class="jumbotron" *ngIf="wordLoaderService.getWordGroupList()==null">
+  <h2> please wait </h2>
+</div>
+<div class="container" *ngIf="wordLoaderService.getWordGroupList()!=null">
   <br>
   <div class="row">
     <div class="col-sm-8">
       <div class="alert alert-info">
         <u><strong>Word Group Selection </strong> </u>
-        <h5> Current Selected Word Group: <strong>{{wordLoaderService.getSelectedWordGroup()}}</strong>, Select a new word group :
+        <h5> Current Selected Word Group: <strong>{{wordLoaderService.getSelectedWordGroup()}}</strong>, Select a new word group
+          :
         </h5>
       </div>
       <br>
-       <table class="table table-hover table-bordered">
+      <table class="table table-hover table-bordered">
         <tr *ngFor="let wordGroupName of wordLoaderService.getWordGroupList()">
           <td td style="width: 50%" (click)="selectWordGroup(wordGroupName)">{{ wordGroupName }}</td>
           <td td style="width: 50%">

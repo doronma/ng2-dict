@@ -9,7 +9,7 @@
           {{localCurrentWordGroupWords.length}} :
           <strong *ngIf="practice=='select'">{{(wordLoaderService.getCurrentWordGroupWords())[counter].hebWord}}</strong>
           <strong *ngIf="practice=='write'">{{localCurrentWordGroupWords[counter].hebWord}}</strong></h5>
-        <div class="alert alert-info" *ngIf="status=='start'">
+        <div class="alert alert-warning" *ngIf="status=='start'">
           <Strong *ngIf="practice=='select'">Please select a word from the list</Strong>
           <Strong *ngIf="practice=='write'">Please Translate word</Strong>
         </div>
@@ -26,7 +26,7 @@
           <tr *ngFor="let word of localCurrentWordGroupWords">
             <td>{{ word.engWord }}</td>
 
-            <td><button class="btn btn-primary btn-xs" (click)="selectWord(word.engWord)" [disabled]="status == 'finished' && lastResultSuccess">select</button></td>
+            <td><button class="btn btn-primary btn-xs" (click)="selectWord(word.engWord)" [disabled]="status == 'finished'">select</button></td>
           </tr>
         </table>
         <div class="form-group" *ngIf="practice=='write'">
@@ -61,6 +61,11 @@
     <div class="col-sm-4">
       <img *ngIf="practice=='select'" src="../../../assets/voc6.jpg" class="img-thumbnail">
       <img *ngIf="practice=='write'" src="../../../assets/voc4.png " class="img-thumbnail ">
+      <p></p>
+      <div class="jumbotron">
+        <p>Good Answers : {{goodAnswersCounter}} </p>
+        <p>Bad Answers :{{badAnswersCounter}}</p>
+      </div>
     </div>
   </div>
 </div>

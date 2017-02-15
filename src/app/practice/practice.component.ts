@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import 'rxjs/add/operator/Map';
+import 'rxjs/add/operator/map';
 
 import { WordLoaderService } from '../services/word-loader.service';
 import { ArrayUtilsService } from '../services/array-utils.service';
@@ -17,6 +17,8 @@ export class PracticeComponent implements OnInit {
   status: string;
   translation: string;
   swShowHint: boolean;
+  goodAnswersCounter: number;
+  badAnswersCounter: number;
 
   private localCurrentWordGroupWords: DictWord[];
 
@@ -48,6 +50,7 @@ export class PracticeComponent implements OnInit {
    */
   selectWord(engWord: string): void {
     if (engWord == (this.wordLoaderService.getCurrentWordGroupWords())[this.counter].engWord) {
+      this.goodAnswersCounter++;
       if (this.counter < this.localCurrentWordGroupWords.length - 1) {
         this.counter++;
         this.status = 'success';
@@ -56,6 +59,7 @@ export class PracticeComponent implements OnInit {
       }
     } else {
       this.status = 'failure';
+      this.badAnswersCounter++;
     }
   }
 
@@ -70,6 +74,8 @@ export class PracticeComponent implements OnInit {
     this.status = 'start';
     this.arrayUtilsService.shuffle(this.localCurrentWordGroupWords);
     this.swShowHint = false;
+    this.goodAnswersCounter = 0
+    this.badAnswersCounter = 0
   }
 
   checkWord(): void {

@@ -13,10 +13,13 @@ export class SelectWordgroupComponent implements OnInit {
   constructor(private wordLoaderService: WordLoaderService, private router: Router) { }
 
   ngOnInit() {
+   this.wordLoaderService.initWordGroupList();
   }
 
   selectWordGroup(wordGroupName: string): void {
     this.wordLoaderService.setSelectedWordGroup(wordGroupName);
     this.router.navigate(['/showWords']);
   }
+
+  
 }
