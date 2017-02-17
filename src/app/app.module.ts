@@ -13,6 +13,7 @@ import { PracticeComponent } from './practice/practice.component';
 import { WordLoaderService } from './services/word-loader.service';
 import { ArrayUtilsService } from './services/array-utils.service';
 import { WordLoaderRestService } from './services/word-loader.rest.service';
+import { CanActivateIfInit } from './services/can-activate-if-init';
 
 
 
@@ -34,7 +35,8 @@ import { WordLoaderRestService } from './services/word-loader.rest.service';
   providers: [
     WordLoaderService,
     ArrayUtilsService,
-    WordLoaderRestService
+    WordLoaderRestService,
+    CanActivateIfInit
   ],
   bootstrap: [AppComponent]
 })
