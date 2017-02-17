@@ -36,7 +36,7 @@ export class DummyWordsData {
             let word10: DictWord = new DictWord('brother', 'אח');
             result = [word1, word2, word3, word4, word5, word6, word7, word8, word9, word10];
         }
-        console.log(result);
+      
         return result;
 
     }

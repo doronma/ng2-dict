@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { WordLoaderService } from './services/word-loader.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,5 +11,8 @@ import { Component } from '@angular/core';
   
 })
 export class AppComponent {
+
+   constructor(private wordLoaderService: WordLoaderService) { }
+
  
 }

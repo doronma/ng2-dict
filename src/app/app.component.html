@@ -6,13 +6,13 @@
         <li>
             <a [routerLink]="['selectWordGrop']">Select Word Group</a>
         </li>
-        <li>
+        <li *ngIf="wordLoaderService.isInitialized()">
             <a [routerLink]="['showWords']">Show Words</a>
         </li>
-        <li>
+        <li *ngIf="wordLoaderService.isInitialized()">
             <a [routerLink]="['practice/select']">Select Words </a>
         </li>
-        <li>
+        <li *ngIf="wordLoaderService.isInitialized()">
             <a [routerLink]="['practice/write']">Write Words </a>
         </li>
     </ul>

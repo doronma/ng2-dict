@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SelectWordgroupComponent } from './select-wordgroup/select-wordgroup.component';
 import { ShowWordsComponent } from './show-words/show-words.component';
+import { PracticeComponent } from './practice/practice.component';
 
 import { WordLoaderService } from './services/word-loader.service';
 import { ArrayUtilsService } from './services/array-utils.service';
-import { PracticeComponent } from './practice/practice.component';
+import { WordLoaderRestService } from './services/word-loader.rest.service';
+
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { PracticeComponent } from './practice/practice.component';
   ],
   providers: [
     WordLoaderService,
-    ArrayUtilsService
+    ArrayUtilsService,
+    WordLoaderRestService
   ],
   bootstrap: [AppComponent]
 })
