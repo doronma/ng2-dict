@@ -1,0 +1,32 @@
+<div class="container">
+  <br>
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <div class="alert alert-info">
+        <u><strong>Create new Word Group</strong> </u><br><br>
+        <div>Word Group Name: <input [(ngModel)]="wordGroupName" name="txtWordGroupName" id="txtWordGroupName"></div>
+      </div>
+      <br>
+      <p-dataTable [value]="wordGroup" [editable]="true">
+        <p-column field="engWord" header="English Word" [editable]="true"></p-column>
+        <p-column field="hebWord" header="Hebrew Word" [editable]="true" [style]="{'text-align':'right'}"></p-column>
+      </p-dataTable>
+      <p></p>
+      <button class="btn btn-primary btn-sm" (click)='addRow()'>add row</button>
+      <button class="btn btn-success btn-sm" (click)='save()'>save words</button>
+      <button class="btn btn-warning btn-sm" [routerLink]="['/selectWordGrop']">back</button>
+      <br><br>
+      <div *ngIf='message.length>0' class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span> {{message}}
+      </div>
+      <div *ngIf='saveSuccess' class="alert alert-success" role="alert">Save is successful</div>
+    </div>
+    <div class="col-sm-6">
+      <img src="../../../assets/edit.gif" class="img-thumbnail">
+
+    </div>
+  </div>
+</div>

@@ -17,6 +17,8 @@
           <td td style="width: 50%" (click)="selectWordGroup(wordGroupName)">{{ wordGroupName }}</td>
           <td td style="width: 50%">
             <button class="btn btn-primary" (click)="selectWordGroup(wordGroupName)">Select</button>
+            <button class="btn btn-info" (click)="editWordGroup(wordGroupName)">Edit</button>
+            <button class="btn btn-warning" (click)="deleteWordGroup(wordGroupName)">Delete</button>
           </td>
         </tr>
       </table>
@@ -25,4 +27,6 @@
       <img src="../../assets/voc7.jpg" class="img-thumbnail"><br>
     </div>
   </div>
+  <Br><br>
+  <button class="btn btn-success btn-sm" [routerLink]="['/editWords']">New Word Group</button>
 </div>

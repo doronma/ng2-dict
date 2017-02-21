@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { SelectWordgroupComponent } from './select-wordgroup/select-wordgroup.component';
 import { ShowWordsComponent } from './show-words/show-words.component';
 import { PracticeComponent } from './practice/practice.component';
+import { EditWordGroupComponent } from './edit-word-group/edit-word-group.component';
 import { CanActivateIfInit } from './services/can-activate-if-init';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'selectWordGrop', component: SelectWordgroupComponent },
   { path: 'showWords', component: ShowWordsComponent ,canActivate: [CanActivateIfInit]},
   { path: 'practice/:practice_type', component: PracticeComponent, canActivate: [CanActivateIfInit] }, 
+  { path: 'editWords', component: EditWordGroupComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
  

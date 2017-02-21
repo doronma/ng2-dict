@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
+import {DataTableModule,SharedModule} from 'primeng/primeng';
+import {ButtonModule} from 'primeng/primeng';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { SelectWordgroupComponent } from './select-wordgroup/select-wordgroup.component';
@@ -14,6 +17,7 @@ import { WordLoaderService } from './services/word-loader.service';
 import { ArrayUtilsService } from './services/array-utils.service';
 import { WordLoaderRestService } from './services/word-loader.rest.service';
 import { CanActivateIfInit } from './services/can-activate-if-init';
+import { EditWordGroupComponent } from './edit-word-group/edit-word-group.component';
 
 
 
@@ -23,14 +27,19 @@ import { CanActivateIfInit } from './services/can-activate-if-init';
     HomeComponent,
     SelectWordgroupComponent,
     ShowWordsComponent,
-    PracticeComponent
+    PracticeComponent,
+    EditWordGroupComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTableModule,
+    SharedModule,
+    ButtonModule
+
   ],
   providers: [
     WordLoaderService,

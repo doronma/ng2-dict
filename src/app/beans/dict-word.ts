@@ -1,15 +1,9 @@
 export class DictWord {
-    private eng: string;
-    private heb: string;
+     engWord: string;
+     hebWord: string;
     constructor(eng: string, heb: string) {
-        this.eng = eng;
-        this.heb = heb;
+        this.engWord = eng;
+        this.hebWord = heb;
     }
-
-    get hebWord(): string {
-        return this.heb;
-    }
-    get engWord(): string {
-        return this.eng
-    }
+   
 }

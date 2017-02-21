@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { DummyWordsData } from './dummy-words-data';
 import { DictWord } from '../beans/dict-word';
+import { WordGroup } from '../beans/word-group';
 import { WordLoaderRestService } from './word-loader.rest.service';
 
 @Injectable()
@@ -15,8 +16,9 @@ export class WordLoaderService {
 
   constructor(private wordLoaderRestService: WordLoaderRestService) { }
 
-  initWordGroupList() {
-    if (this.wordGroupNameList == null) {
+  initWordGroupList(refresh : boolean) {
+ 
+    if (this.wordGroupNameList == null || refresh) {
       this.wordLoaderRestService.getWordGroupListFromServer()
         .subscribe((data: string[]) => {
           this.wordGroupNameList = data;
@@ -55,6 +57,8 @@ export class WordLoaderService {
     //  return this.dummyWordsData.getWordGroupList();
     return this.wordGroupNameList;
   }
+
+ 
 
 
 

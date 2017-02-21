@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { WordLoaderService } from '../services/word-loader.service';
+import { WordLoaderRestService } from '../services/word-loader.rest.service';
 
 @Component({
   selector: 'app-select-wordgroup',
@@ -10,16 +11,20 @@ import { WordLoaderService } from '../services/word-loader.service';
 })
 export class SelectWordgroupComponent implements OnInit {
 
-  constructor(private wordLoaderService: WordLoaderService, private router: Router) { }
+  constructor(private wordLoaderService: WordLoaderService, private wordLoaderRestService:WordLoaderRestService, private router: Router) { }
 
   ngOnInit() {
-   this.wordLoaderService.initWordGroupList();
+   this.wordLoaderService.initWordGroupList(false);
   }
 
   selectWordGroup(wordGroupName: string): void {
     this.wordLoaderService.setSelectedWordGroup(wordGroupName);
     this.router.navigate(['/showWords']);
   }
+
+  deleteWordGroup(wordGroupName : string): void{
+       this.wordLoaderRestService.deleteWordGroup(wordGroupName).subscribe((data: string) =>  this.wordLoaderService.initWordGroupList(true));
+   }
 
   
 }
