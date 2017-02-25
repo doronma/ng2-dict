@@ -16,8 +16,8 @@ export class WordLoaderService {
 
   constructor(private wordLoaderRestService: WordLoaderRestService) { }
 
-  initWordGroupList(refresh : boolean) {
- 
+  initWordGroupList(refresh: boolean) {
+
     if (this.wordGroupNameList == null || refresh) {
       this.wordLoaderRestService.getWordGroupListFromServer()
         .subscribe((data: string[]) => {
@@ -53,12 +53,14 @@ export class WordLoaderService {
     });
   }
 
+  
+
   getWordGroupList(): string[] {
     //  return this.dummyWordsData.getWordGroupList();
     return this.wordGroupNameList;
   }
 
- 
+
 
 
 

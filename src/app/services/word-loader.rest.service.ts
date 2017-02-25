@@ -37,6 +37,14 @@ export class WordLoaderRestService {
       .catch(this.handleError);
   }
 
+   updateWordGroupToServer(wordGroup: WordGroup): Observable<string> {
+    let url: string = 'http://localhost:8080/editWordGroup';
+    let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+    return this._http.put(url, JSON.stringify(wordGroup), { headers: headers })
+      .do((data) => console.log(data))
+      .catch(this.handleError);
+  }
+
   deleteWordGroup(groupName: string): Observable<string> {
     let url: string = 'http://localhost:8080/deleteWordGroup?groupName=' + groupName;
     return this._http.delete(url).

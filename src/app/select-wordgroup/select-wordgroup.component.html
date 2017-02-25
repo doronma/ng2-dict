@@ -17,7 +17,7 @@
           <td td style="width: 50%" (click)="selectWordGroup(wordGroupName)">{{ wordGroupName }}</td>
           <td td style="width: 50%">
             <button class="btn btn-primary" (click)="selectWordGroup(wordGroupName)">Select</button>
-            <button class="btn btn-info" (click)="editWordGroup(wordGroupName)">Edit</button>
+            <button class="btn btn-info" [routerLink]="['/updateWordGroup/' + wordGroupName]">Edit</button>
             <button class="btn btn-warning" (click)="deleteWordGroup(wordGroupName)">Delete</button>
           </td>
         </tr>

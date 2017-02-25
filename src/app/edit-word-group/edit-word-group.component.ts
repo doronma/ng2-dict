@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/map';
 
 import { DictWord } from '../beans/dict-word';
 import { WordGroup } from '../beans/word-group';
@@ -12,18 +14,32 @@ import { WordLoaderRestService } from '../services/word-loader.rest.service';
 })
 export class EditWordGroupComponent implements OnInit {
 
-  constructor(private wordLoaderService: WordLoaderService, private wordLoaderRestService: WordLoaderRestService) { }
+  constructor(private wordLoaderService: WordLoaderService, private wordLoaderRestService: WordLoaderRestService, private route: ActivatedRoute) { }
   private wordGroup: DictWord[];
   private wordGroupName: string;
   private message: string = '';
   saveSuccess: boolean = false;
+  newWordGroup: boolean = false;
+
 
   ngOnInit() {
-    this.createNewWordGroup();
-    this.wordGroupName = '';
+
+    this.route.params
+      .map(params => params['wordGroupName'])
+      .subscribe((wordGroupName) => {
+        if (wordGroupName == null) {
+          this.createNewWordGroup();
+        } else {
+          this.wordGroupName = wordGroupName;
+          this.wordLoaderRestService.getWordGroupFromServer(wordGroupName).subscribe((data: DictWord[]) => {
+            this.wordGroup = data;
+          });
+        }
+      });
   }
 
   createNewWordGroup(): void {
+    this.newWordGroup = true;
     this.wordGroup = [];
     this.addRow();
   }
@@ -42,10 +58,17 @@ export class EditWordGroupComponent implements OnInit {
     if (this.isFormValid()) {
       let saveWordGroup: WordGroup = new WordGroup(this.wordGroupName, this.wordGroup);
       console.log('saving - ' + JSON.stringify(saveWordGroup));
-      this.wordLoaderRestService.saveWordGroupToServer(saveWordGroup).subscribe((data: string) => {
-        this.wordLoaderService.initWordGroupList(true);
-        this.saveSuccess = true;
-      });
+      if (this.newWordGroup) {
+        this.wordLoaderRestService.saveWordGroupToServer(saveWordGroup).subscribe((data: string) => {
+          this.wordLoaderService.initWordGroupList(true);
+          this.saveSuccess = true;
+        });
+      } else {
+        this.wordLoaderRestService.updateWordGroupToServer(saveWordGroup).subscribe((data: string) => {
+          this.wordLoaderService.initWordGroupList(true);
+          this.saveSuccess = true;
+        });
+      }
     }
   }
 

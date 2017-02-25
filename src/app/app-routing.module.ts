@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'selectWordGrop', component: SelectWordgroupComponent },
   { path: 'showWords', component: ShowWordsComponent ,canActivate: [CanActivateIfInit]},
   { path: 'practice/:practice_type', component: PracticeComponent, canActivate: [CanActivateIfInit] }, 
+  { path: 'updateWordGroup/:wordGroupName', component: EditWordGroupComponent}, 
   { path: 'editWords', component: EditWordGroupComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
