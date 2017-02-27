@@ -1,25 +1,27 @@
 <nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-        <a class="navbar-brand" [routerLink]="['home']">Home</a>
-    </div>
+   
     <ul class="nav navbar-nav">
-        <li>
-            <a [routerLink]="['selectWordGrop']">Select Word Group</a>
-        </li>
-        <li *ngIf="wordLoaderService.isInitialized()">
-            <a [routerLink]="['showWords']">Show Words</a>
-        </li>
-        <li *ngIf="wordLoaderService.isInitialized()">
-            <a [routerLink]="['practice/select']">Select Words </a>
-        </li>
-        <li *ngIf="wordLoaderService.isInitialized()">
-            <a [routerLink]="['practice/write']">Write Words </a>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">&nbsp;&nbsp; Menu <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a [routerLink]="['home']">Home</a>
+                </li>
+                <li>
+                    <a [routerLink]="['selectWordGrop']">Select Word Group</a>
+                </li>
+                <li *ngIf="wordLoaderService.isInitialized()">
+                    <a [routerLink]="['showWords']">Show Words</a>
+                </li>
+                <li *ngIf="wordLoaderService.isInitialized()">
+                    <a [routerLink]="['practice/select']">Select Words </a>
+                </li>
+                <li *ngIf="wordLoaderService.isInitialized()">
+                    <a [routerLink]="['practice/write']">Write Words </a>
+                </li>
+            </ul>
         </li>
     </ul>
 </nav>
-
-
-
-
 
 <router-outlet></router-outlet>

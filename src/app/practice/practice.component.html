@@ -53,6 +53,7 @@
           </div>
         </div>
         <a class="btn btn-warning btn-sm" (click)="reset()">Reset</a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/selectWordGrop']">Select Word Group</a>
         <a class="btn btn-primary btn-sm" [routerLink]="['/showWords']">show Words</a>
         <a *ngIf="practice=='select'" class="btn btn-primary btn-sm" [routerLink]="['/practice/write']">write Words</a>
         <a *ngIf="practice=='write'" class="btn btn-primary btn-sm " [routerLink]="[ '/practice/select'] ">select words</a>
