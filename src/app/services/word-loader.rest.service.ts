@@ -13,8 +13,11 @@ export class WordLoaderRestService {
 
   constructor(private _http: Http) { }
 
+  host : string = window.location.hostname;;
+
   getWordGroupListFromServer(): Observable<string[]> {
-    let url: string = 'http://localhost:8080/wordGroups';
+    console.log('host is - ' + this.host)
+    let url: string = 'http://'+ this.host + ':8080/wordGroups';
     return this._http.get(url)
       .map((response: Response) => <string[]>response.json())
       //  .do((data :string[]) =>  this.wordGroupNameList = data)
@@ -22,7 +25,7 @@ export class WordLoaderRestService {
   }
 
   getWordGroupFromServer(groupName: string): Observable<DictWord[]> {
-    let url: string = 'http://localhost:8080/groupWords?groupName=' + groupName;
+    let url: string = 'http://' + this.host + ':8080/groupWords?groupName=' + groupName;
     return this._http.get(url)
       .map((response: Response) => <DictWord[]>response.json().wordList)
       //  .do((data) =>  console.log(data))
@@ -30,7 +33,7 @@ export class WordLoaderRestService {
   }
 
   saveWordGroupToServer(wordGroup: WordGroup): Observable<string> {
-    let url: string = 'http://localhost:8080/addWordGroup';
+    let url: string = 'http://' + this.host + ':8080/addWordGroup';
     let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
     return this._http.post(url, JSON.stringify(wordGroup), { headers: headers })
       .do((data) => console.log(data))
@@ -38,7 +41,7 @@ export class WordLoaderRestService {
   }
 
    updateWordGroupToServer(wordGroup: WordGroup): Observable<string> {
-    let url: string = 'http://localhost:8080/editWordGroup';
+    let url: string = 'http://' + this.host + ':8080/editWordGroup';
     let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
     return this._http.put(url, JSON.stringify(wordGroup), { headers: headers })
       .do((data) => console.log(data))
@@ -46,7 +49,7 @@ export class WordLoaderRestService {
   }
 
   deleteWordGroup(groupName: string): Observable<string> {
-    let url: string = 'http://localhost:8080/deleteWordGroup?groupName=' + groupName;
+    let url: string = 'http://' + this.host + ':8080/deleteWordGroup?groupName=' + groupName;
     return this._http.delete(url).
     do((data) => console.log(data))
       .catch(this.handleError);
