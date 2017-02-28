@@ -1,4 +1,4 @@
-import { DictWord } from '../beans/dict-word';
+import { DictWord } from '../model/dict-word';
 
 export class DummyWordsData {
 

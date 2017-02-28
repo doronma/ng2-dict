@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 import { WordLoaderService } from '../services/word-loader.service';
 import { ArrayUtilsService } from '../services/array-utils.service';
-import { DictWord } from '../beans/dict-word';
+import { DictWord } from '../model/dict-word';
 
 @Component({
   selector: 'app-practice',

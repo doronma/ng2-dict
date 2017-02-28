@@ -5,8 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
-import { DictWord } from '../beans/dict-word';
-import { WordGroup } from '../beans/word-group';
+import { DictWord } from '../model/dict-word';
+import { WordGroup } from '../model/word-group';
 
 @Injectable()
 export class WordLoaderRestService {

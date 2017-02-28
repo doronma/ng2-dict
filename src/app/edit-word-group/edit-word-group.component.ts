@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/map';
 
-import { DictWord } from '../beans/dict-word';
-import { WordGroup } from '../beans/word-group';
+import { DictWord } from '../model/dict-word';
+import { WordGroup } from '../model/word-group';
 import { WordLoaderService } from '../services/word-loader.service';
 import { WordLoaderRestService } from '../services/word-loader.rest.service';
 
