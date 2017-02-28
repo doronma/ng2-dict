@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {DataTableModule,SharedModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app/app.component';
 import { HomeComponent } from './home/home.component';
 import { SelectWordgroupComponent } from './select-wordgroup/select-wordgroup.component';
 import { ShowWordsComponent } from './show-words/show-words.component';
