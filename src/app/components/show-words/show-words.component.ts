@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WordLoaderService } from '../services/word-loader.service';
+import { WordLoaderService } from '../../services';
 
 @Component({
   selector: 'app-show-words',

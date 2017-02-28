@@ -1,4 +1,4 @@
-import { DictWord } from '../model/dict-word';
+import { DictWord } from '../model';
 
 export class DummyWordsData {
 

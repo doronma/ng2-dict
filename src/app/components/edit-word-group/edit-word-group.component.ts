@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import 'rxjs/add/operator/map';
+import '../../rxjs-extensions';
 
-import { DictWord } from '../model/dict-word';
-import { WordGroup } from '../model/word-group';
-import { WordLoaderService } from '../services/word-loader.service';
-import { WordLoaderRestService } from '../services/word-loader.rest.service';
+import { DictWord,WordGroup } from '../../model';
+import { WordLoaderService, WordLoaderRestService} from '../../services';
 
 @Component({
   selector: 'app-edit-word-group',

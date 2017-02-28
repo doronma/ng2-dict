@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { WordLoaderService } from '../services/word-loader.service';
-import { WordLoaderRestService } from '../services/word-loader.rest.service';
+import { WordLoaderService,WordLoaderRestService} from '../../services';
+
 
 @Component({
   selector: 'app-select-wordgroup',

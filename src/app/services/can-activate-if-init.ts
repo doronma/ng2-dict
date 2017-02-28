@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate,Router } from '@angular/router';
 import { WordLoaderService } from './word-loader.service';
-import { Router } from '@angular/router';
-
 
 @Injectable()
 export class CanActivateIfInit implements CanActivate {

@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
+import '../rxjs-extensions';
 
-import { DictWord } from '../model/dict-word';
-import { WordGroup } from '../model/word-group';
+import { DictWord,WordGroup } from '../model';
+
 
 @Injectable()
 export class WordLoaderRestService {

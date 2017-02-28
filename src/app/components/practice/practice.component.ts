@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import 'rxjs/add/operator/map';
+import '../../rxjs-extensions';
 
-import { WordLoaderService } from '../services/word-loader.service';
-import { ArrayUtilsService } from '../services/array-utils.service';
-import { DictWord } from '../model/dict-word';
+import { WordLoaderService,ArrayUtilsService } from '../../services';
+import { DictWord } from '../../model';
 
 @Component({
   selector: 'app-practice',

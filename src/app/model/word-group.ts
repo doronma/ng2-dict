@@ -1,4 +1,4 @@
-import { DictWord } from './dict-word';
+import { DictWord } from '.';
 export class WordGroup {
     private groupName : string;
     private wordList : DictWord[];

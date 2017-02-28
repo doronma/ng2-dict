@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { SelectWordgroupComponent } from './select-wordgroup/select-wordgroup.component';
-import { ShowWordsComponent } from './show-words/show-words.component';
-import { PracticeComponent } from './practice/practice.component';
-import { EditWordGroupComponent } from './edit-word-group/edit-word-group.component';
-import { CanActivateIfInit } from './services/can-activate-if-init';
+
+import { HomeComponent,SelectWordgroupComponent} from './components';
+import { ShowWordsComponent, PracticeComponent,EditWordGroupComponent } from './components';
+
+import { CanActivateIfInit } from './services';
 
 const routes: Routes = [
 
