@@ -12,6 +12,8 @@ import { ShowWordsComponent, PracticeComponent,EditWordGroupComponent } from './
 import  { WordLoaderService, ArrayUtilsService, WordLoaderRestService} from './services';
 import { CanActivateIfInit } from './services';
 
+import { MockWordLoaderService } from './services/mock/mock-word-loader.service';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { CanActivateIfInit } from './services';
     SharedModule
   ],
   providers: [
-    WordLoaderService,
+   // [{provide: WordLoaderService,useClass: MockWordLoaderService}],
+    [{provide: WordLoaderService,useClass: WordLoaderService}],
     ArrayUtilsService,
     WordLoaderRestService,
     CanActivateIfInit

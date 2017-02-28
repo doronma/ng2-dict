@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { DummyWordsData } from './dummy-words-data';
-import { DictWord } from '../beans/dict-word';
-import { WordGroup } from '../beans/word-group';
 import { WordLoaderRestService } from './word-loader.rest.service';
+import { DictWord, WordGroup } from '../model';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class WordLoaderService {
@@ -11,13 +10,16 @@ export class WordLoaderService {
   private selectedWordGroup: string;
   private currentWordGroupWords: DictWord[];
   private wordGroupNameList: string[];
-  private dummyWordsData: DummyWordsData = new DummyWordsData();
 
-
-  constructor(private wordLoaderRestService: WordLoaderRestService) { }
+  constructor(private wordLoaderRestService: WordLoaderRestService) {
+    console.log('running WordLoaderService');
+  }
 
   initWordGroupList(refresh: boolean) {
+    // for local test
 
+
+    // for real server
     if (this.wordGroupNameList == null || refresh) {
       this.wordLoaderRestService.getWordGroupListFromServer()
         .subscribe((data: string[]) => {
@@ -26,6 +28,7 @@ export class WordLoaderService {
         })
         , error => console.log(<any>error);
     }
+
   }
 
   public isInitialized(): boolean {
@@ -42,27 +45,21 @@ export class WordLoaderService {
 
   public setSelectedWordGroup(selectedWordGroup: string): void {
     this.selectedWordGroup = selectedWordGroup;
-    //this.currentWordGroupWords= this.dummyWordsData.getDictWords(selectedWordGroup);
+
     this.getWordsForWordGroup(selectedWordGroup);
+
   }
 
   getWordsForWordGroup(selectedWordGroup: string) {
     this.wordLoaderRestService.getWordGroupFromServer(selectedWordGroup).subscribe((data: DictWord[]) => {
-      //console.log(data);
       this.currentWordGroupWords = data;
     });
   }
 
-  
-
   getWordGroupList(): string[] {
-    //  return this.dummyWordsData.getWordGroupList();
+
     return this.wordGroupNameList;
+
   }
-
-
-
-
-
 
 }
