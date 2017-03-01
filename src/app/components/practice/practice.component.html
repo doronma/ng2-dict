@@ -53,20 +53,23 @@
           </div>
         </div>
         <a class="btn btn-warning btn-sm" (click)="reset()">Reset</a>
-        <a class="btn btn-primary btn-sm" [routerLink]="['/selectWordGrop']">Select Word Group</a>
-        <a class="btn btn-primary btn-sm" [routerLink]="['/showWords']">show Words</a>
-        <a *ngIf="practice=='select'" class="btn btn-primary btn-sm" [routerLink]="['/practice/write']">write Words</a>
-        <a *ngIf="practice=='write'" class="btn btn-primary btn-sm " [routerLink]="[ '/practice/select'] ">select words</a>
+        <Br><br>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/selectWordGrop']">Change Word Group</a>
+        <a class="btn btn-primary btn-sm" [routerLink]="['/showWords']">Show</a>
+        <a *ngIf="practice=='select'" class="btn btn-primary btn-sm" [routerLink]="['/practice/write']">Write</a>
+        <a *ngIf="practice=='write'" class="btn btn-primary btn-sm " [routerLink]="[ '/practice/select'] ">Select</a>
       </div>
     </div>
     <div class="col-sm-4">
-      <img *ngIf="practice=='select'" src="../../../assets/voc6.jpg" class="img-thumbnail">
-      <img *ngIf="practice=='write'" src="../../../assets/voc4.png " class="img-thumbnail ">
-      <p></p>
-      <div class="jumbotron">
+       <div class="jumbotron">
         <p>Good Answers : {{goodAnswersCounter}} </p>
         <p>Bad Answers :{{badAnswersCounter}}</p>
       </div>
+      <br><br>
+      <img *ngIf="practice=='select'" src="../../../assets/voc6.jpg" class="img-thumbnail">
+      <img *ngIf="practice=='write'" src="../../../assets/voc4.png " class="img-thumbnail ">
+      
+     
     </div>
   </div>
 </div>

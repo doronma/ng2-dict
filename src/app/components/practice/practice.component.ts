@@ -81,6 +81,7 @@ export class PracticeComponent implements OnInit {
     this.swShowHint = false;
     if (this.translation == this.localCurrentWordGroupWords[this.counter].engWord) {
       this.translation = '';
+      this.goodAnswersCounter++;
       if (this.counter < this.localCurrentWordGroupWords.length - 1) {
         this.counter++;
         this.status = 'success';
@@ -89,6 +90,7 @@ export class PracticeComponent implements OnInit {
       }
     } else {
       this.status = 'failure';
+      this.badAnswersCounter++;
     }
   }
 
