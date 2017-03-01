@@ -16,9 +16,9 @@
         <tr *ngFor="let wordGroupName of wordLoaderService.getWordGroupList()">
           <td td style="width: 50%" (click)="selectWordGroup(wordGroupName)">{{ wordGroupName }}</td>
           <td td style="width: 50%">
-            <button class="btn btn-primary" (click)="selectWordGroup(wordGroupName)">Select</button>
-            <button class="btn btn-info" [routerLink]="['/updateWordGroup/' + wordGroupName]">Edit</button>
-            <button class="btn btn-warning" (click)="deleteWordGroup(wordGroupName)">Delete</button>
+            <button class="btn " (click)="selectWordGroup(wordGroupName)"><img src="../../../assets/1488391124_hand-up.png" title="Select"></button>
+            <button class="btn " [routerLink]="['/updateWordGroup/' + wordGroupName]"><img src="../../../assets/1488391077_edit.png" title="Edit"></button>
+            <button class="btn " (click)="deleteWordGroup(wordGroupName)"><img src="../../../assets/1488391151_trash.png" title="delete"></button>
           </td>
         </tr>
       </table>
